@@ -1,0 +1,50 @@
+[general]
+; Framerate
+framerate = 60
+
+; Bars
+bars = 0
+
+; Sensitivity
+sensitivity = 100
+
+[input]
+; Method to capture audio
+; available: auto, pulse, alsa, pipe, jack, portaudio, wasapi
+method = auto
+
+[output]
+; Method to output
+; available: auto, terminal, noncurses, raw, sdl, sdl_glsl
+method = auto
+
+; Channels
+channels = stereo
+
+[smoothing]
+; Integral / Friction
+integral = 0.5
+friction = 0.8
+
+; Monstercat
+monstercat = 0.3
+
+; Waves
+waves = 0
+
+[colors]
+; Colors can be set using the format; 'foreground,background'.
+; Available: default, background, single, gradient
+
+; Gradient
+gradient = 1
+
+gradient_count = 4
+gradient_color_1 = '#74c7ec'
+gradient_color_2 = '#89b4fa'
+gradient_color_3 = '#cba6f7'
+gradient_color_4 = '#f38ba8'
+
+[display]
+; Hide bar if there is no audio input
+hide_on_silence = false

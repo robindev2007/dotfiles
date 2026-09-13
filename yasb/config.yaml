@@ -1,0 +1,223 @@
+watch_stylesheet: true
+watch_config: true
+debug: false
+bars:
+  primary-bar:
+    enabled: true
+    screens:
+    - '*'
+    class_name: yasb-bar
+    alignment:
+      position: top
+      align: center
+    blur_effect:
+      enabled: false
+      dark_mode: true
+      round_corners: false
+    window_flags:
+      always_on_top: true
+      windows_app_bar: true
+      hide_on_fullscreen: true
+    dimensions:
+      width: 100%
+      height: 28
+    padding:
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+    widgets:
+      left:
+      - glazewm_workspaces
+      - taskbar
+      center:
+      - clock
+      right:
+      - cava
+      - media
+      - lines
+      - cpu
+      - memory
+      - lines
+      - systray
+      - power_menu
+      - notifications
+widgets:
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "CPU {info[percent][total]}%"
+      label_alt: "CPU {info[freq][current]} MHz"
+      update_interval: 2000
+      hide_decimal: true
+      callbacks:
+        on_left: "toggle_label"
+  memory:
+    type: "yasb.memory.MemoryWidget"
+    options:
+      label: "RAM {virtual_mem_percent}%"
+      label_alt: "RAM {virtual_mem_used} / {virtual_mem_total}"
+      update_interval: 2000
+      hide_decimal: true
+      callbacks:
+        on_left: "toggle_label"
+  taskbar:
+    type: "yasb.taskbar.TaskbarWidget"
+    options:
+      icon_size: 16
+      tooltip: true
+      show_only_visible: true
+      strict_filtering: true
+      monitor_exclusive: false
+      hide_empty: false
+      title_label:
+        enabled: false
+        show: "focused"
+        min_length: 10
+        max_length: 20
+      animation:
+        enabled: true
+        duration: 200
+      preview:
+        enabled: false
+      callbacks:
+        on_left: "toggle_window"
+        on_middle: "do_nothing"
+        on_right: "context_menu"
+  cava:
+    type: "yasb.cava.CavaWidget"
+    options:
+      bar_height: 12
+      min_bar_height: 0
+      gradient: 1
+      foreground: "#89b4fa"
+      gradient_color_1: "#89b4fa"
+      gradient_color_2: "#89b4fa"
+      gradient_color_3: "#89b4fa"
+      bars_number: 10
+      bar_spacing: 2
+      bar_width: 4
+      bar_type: "bars"
+      framerate: 60
+      hide_empty: true
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{title}{s}{artist}"
+      label_alt: "{title}"
+      separator: " ~ "
+      hide_empty: true
+      max_field_size:
+        label: 20
+        label_alt: 20
+      show_thumbnail: false
+      controls_only: false
+      controls_left: false
+      controls_hide: true
+      icons:
+        prev_track: "\ue892"
+        next_track: "\ue893"
+        play: "\ue768"
+        pause: "\ue769"
+      scrolling_label:
+        enabled: false
+        update_interval_ms: 30
+        style: "left"
+        separator: "  •  "
+        label_padding: 0
+        always_scroll: false
+      callbacks:
+        on_left: "toggle_media_menu"
+      media_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        alignment: "center"
+        direction: "down"
+        offset_top: 7
+        thumbnail_corner_radius: 10
+        thumbnail_size: 120
+        max_title_size: 32
+        max_artist_size: 26
+        show_source: true
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+  lines:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: ""
+      label_alt: ""
+      class_name: "separator-widget"
+  systray:
+    type: "yasb.systray.SystrayWidget"
+    options:
+      class_name: "systray"
+      label_collapsed: "\ue70d"
+      label_expanded: "\ue70e"
+      label_position: "right"
+      pin_click_modifier: "ctrl"
+      show_unpinned: false
+      show_unpinned_button: true
+      show_battery: false
+      show_volume: false
+      show_network: false
+      icon_size: 16
+      use_hook: true
+  power_menu:
+    type: "yasb.power_menu.PowerMenuWidget"
+    options:
+      label: "\uf011"
+      uptime: true
+      blur: false
+      blur_background: true
+      animation_duration: 300
+      button_row: 3
+      buttons:
+        lock: ["\uea75", "Lock"]
+        shutdown: ["\uf011", "Shut Down"]
+        restart: ["\uead2", "Restart"]
+        hibernate: ["\uf28e", "Hibernate"]
+        sleep: ["\u23fe", "Sleep"]
+        cancel: ["\udb81\udf3a", "Cancel"]
+  notifications:
+    type: "yasb.notifications.NotificationsWidget"
+    options:
+      label: "\uf0f3"
+      label_alt: "{count}"
+      hide_empty: false
+      tooltip: false
+      callbacks:
+        on_left: "toggle_notification"
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      label: "{%I:%M %p %a %d %b}"
+      label_alt: "{%A, %d %B %Y}"
+      timezones: []
+      calendar:
+        alignment: "center"
+  glazewm_workspaces:
+    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+    options:
+      offline_label: "GlazeWM Offline"
+      hide_if_offline: false
+      monitor_exclusive: false
+      enable_scroll_switching: true
+      populated_label: "{name}"
+      empty_label: "{name}"
+      active_populated_label: "{name}"
+      active_empty_label: "{name}"
+      focused_populated_label: "{name}"
+      focused_empty_label: "{name}"
+      app_icons:
+        enabled_populated: false
+        enabled_active: false
+        enabled_focused: false
+        size: 14
+        max_icons: 0
+        hide_label: false
+        hide_duplicates: true
+        hide_floating: false

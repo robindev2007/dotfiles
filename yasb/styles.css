@@ -1,0 +1,222 @@
+:root {
+    --bg: rgba(30, 30, 46, 0.70);
+    --text: #cdd6f4;
+    --subtext: #a6adc8;
+    --blue: #89b4fa;
+    --teal: #94e2d5;
+    --green: #a6e3a1;
+    --red: #f38ba8;
+    --yellow: #f9e2af;
+    --purple: #cba6f7;
+    --surface: #313244;
+}
+* {
+    font-family: "JetBrainsMono NFP";
+    font-size: 12px;
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+.yasb-bar {
+    background-color: var(--bg);
+    padding: 0;
+    margin: 0;
+}
+.widget {
+    padding: 0 4px;
+    margin: 0;
+}
+.widget .label {
+    color: var(--text);
+}
+.notifications-widget {
+    position: relative;
+    padding-left: 12px !important;
+}
+.media-widget {
+    min-width: 120px;
+    max-width: 150px;
+}
+.media-widget .label {
+    color: var(--text);
+}
+.media-widget .btn {
+    padding: 0 4px;
+    margin: 0;
+    color: var(--subtext);
+    font-family: "Segoe Fluent Icons";
+    font-weight: 400;
+}
+.media-widget .btn:hover {
+    color: var(--text);
+}
+.traffic-widget {
+    min-width: 160px;
+    max-width: 160px;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+.traffic-widget .download-speed,
+.traffic-widget .upload-speed {
+    font-variant-numeric: tabular-nums;
+}
+.traffic-widget .speed-unit {
+    font-size: 0;
+    width: 0;
+    overflow: hidden;
+}
+.traffic-widget span {
+    font-size: 14px;
+}
+.systray {
+    background: transparent;
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+.systray .widget-container {
+    display: flex;
+    align-items: center;
+}
+.systray .unpinned-container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.systray .pinned-container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.systray .button {
+    padding: 2px;
+    border-radius: 4px;
+    min-width: 20px;
+    min-height: 20px;
+}
+.systray .button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+.systray .unpinned-visibility-btn {
+    padding: 0 4px;
+    border-radius: 4px;
+    min-width: 20px;
+    min-height: 20px;
+    color: var(--subtext);
+    font-family: "Segoe Fluent Icons";
+}
+.systray .unpinned-visibility-btn:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.1);
+}
+.power-menu-widget .label {
+    color: var(--red);
+    font-size: 14px;
+}
+.power-menu-popup {
+    background-color: var(--bg);
+    border-radius: 8px;
+}
+.power-menu-popup .button {
+    width: 140px;
+    height: 100px;
+    margin: 6px;
+    background-color: var(--surface);
+    border-radius: 8px;
+    color: var(--text);
+}
+.power-menu-popup .button.hover {
+    background-color: var(--overlay);
+}
+.power-menu-popup .button .label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--text);
+}
+.power-menu-popup .button .icon {
+    font-size: 36px;
+    padding-top: 16px;
+    color: var(--subtext);
+}
+.power-menu-popup .button.cancel .icon,
+.power-menu-popup .button.cancel .label {
+    color: var(--red);
+}
+.notifications-widget .label {
+    font-size: 18px;
+}
+.notifications-widget .icon {
+    font-size: 18px;
+}
+.notifications-widget .label {
+    position: relative;
+}
+.notifications-widget.has-notifications::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--red);
+    border-radius: 50%;
+}
+.taskbar-widget .app-container {
+    margin: 0 2px;
+    padding: 2px 4px;
+    border-radius: 0;
+    background-color: transparent;
+}
+.taskbar-widget .app-container:hover {
+    background-color: rgba(108, 112, 134, 0.3);
+}
+.taskbar-widget .app-container.running {
+    background-color: transparent;
+}
+.taskbar-widget .app-container.foreground {
+    background-color: rgba(108, 112, 134, 0.6);
+}
+.taskbar-widget .app-container.foreground::after {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    margin: 2px auto 0;
+}
+.glazewm-workspaces .ws-btn {
+    background-color: transparent;
+    color: var(--subtext);
+    padding: 2px 6px;
+    border-radius: 6px;
+    margin: 2px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+.glazewm-workspaces .ws-btn:hover {
+    background-color: rgba(69, 71, 90, 0.4);
+    color: var(--text);
+}
+.glazewm-workspaces .ws-btn.populated {
+    background-color: transparent;
+    color: var(--subtext);
+}
+.glazewm-workspaces .ws-btn.active_populated {
+    background-color: var(--blue);
+    color: var(--bg);
+}
+.glazewm-workspaces .ws-btn.active_empty {
+    background-color: var(--blue);
+    color: var(--bg);
+}
+.glazewm-workspaces .ws-btn.focused_populated {
+    background-color: var(--blue);
+    color: var(--bg);
+}
+.glazewm-workspaces .ws-btn.focused_empty {
+    background-color: var(--blue);
+    color: var(--bg);
+}
